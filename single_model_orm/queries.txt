@@ -1,0 +1,28 @@
+python manage.py shell
+
+
+from apps.users_app.models import *
+
+bob = Users.objects.create(first_name = "bob", last_name = "boberson", email_address = "bob@bobsemail.com", age = 23)
+
+
+carl = Users.objects.create(first_name = "carl", last_name = "boberson", email_address = "carl@bobsemail.com", age = 43)
+
+nick  = Users.objects.create(first_name = "nick", last_name = "boberson", email_address = "nick@bobsemail.com", age = 63)
+
+users = Users.objects.all()
+
+lastuser = Users.objects.last()
+
+firstuser = Users.objects.first()
+
+>>> pancakes = Users.objects.get(id=3)
+>>> pancakes.last_name = "pancakes"
+>>> pancakes.save()
+
+>>> bye = Users.objects.get(id=2)
+>>> bye.delete()
+
+>>> sortedusers = Users.objects.all().order_by('first_name')
+
+>>> reversesortedusers = Users.objects.all().order_by('-first_name')
